@@ -9,11 +9,12 @@ import css from './NotesPage.module.css';
 import NoteList from '@/components/NoteList/NoteList';
 import Pagination from '@/components/Pagination/Pagination';
 import SearchBox from '@/components/SearchBox/SearchBox';
-import Modal from '@/components/Modal/Modal';
-import NoteForm from '@/components/NoteForm/NoteForm';
 
 import { fetchNotes } from '@/lib/api';
 import type { NoteTag } from '@/types/note';
+
+import Link from 'next/link';
+
 interface NotesClientProps {
   tag?: NoteTag;
 }
@@ -21,7 +22,6 @@ interface NotesClientProps {
 export default function NotesClient({ tag }: NotesClientProps) {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
-  const [modal, setModal] = useState(false);
   const [searchValue, setSearchValue] = useState('');
 
   const { data, isLoading, isError } = useQuery({
@@ -66,9 +66,9 @@ export default function NotesClient({ tag }: NotesClientProps) {
           />
         )}
 
-        <button className={css.button} onClick={() => setModal(true)}>
+        <Link className={css.button} href="/notes/action/create">
           Create note +
-        </button>
+        </Link>
       </header>
 
       {isLoading && <p>Loading notes...</p>}
@@ -76,12 +76,6 @@ export default function NotesClient({ tag }: NotesClientProps) {
       {isError && <p>Something went wrong. Please try again.</p>}
 
       {!isError && notes.length > 0 && <NoteList notes={notes} />}
-
-      {modal && (
-        <Modal onClose={() => setModal(false)}>
-          <NoteForm onClose={() => setModal(false)} />
-        </Modal>
-      )}
     </div>
   );
 }
