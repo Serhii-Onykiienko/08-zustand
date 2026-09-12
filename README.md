@@ -85,13 +85,13 @@ Main operations:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Serhii-Onykiienko/08-zustand.git
+git clone https://github.com/Serhii-Onykiienko/notehub-nextjs.git
 ```
 
 ### 2. Navigate to the project directory
 
 ```bash
-cd 08-zustand
+cd notehub-nextjs
 ```
 
 ### 3. Install dependencies
