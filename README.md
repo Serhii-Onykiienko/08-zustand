@@ -4,7 +4,7 @@
 
 The application allows users to browse, search, filter, create, view, and delete notes while demonstrating modern Next.js routing, server-state management, persistent client state, REST API integration, and SEO metadata.
 
-🔗 **Live Demo:** https://08-zustand-teal-seven.vercel.app/
+🔗 **Live Demo:** https://notehub-serhii.vercel.app/
 
 ---
 
